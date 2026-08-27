@@ -4,7 +4,7 @@ A simple command-line currency converter built with Python.
 
 ## Features
 
-* Convert between different currencies
+* Convert between different currenciess
 * Supports API and JSON exchange rates
 * Simple command-line interface
 * Error handling
