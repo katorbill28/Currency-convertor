@@ -51,15 +51,19 @@ class ExpenseConverterApp:
         main_frame.columnconfigure(1, weight=1)
         main_frame.rowconfigure(4, weight=1)
 
-        title = ttk.Label(
+        ttk.Label(
             main_frame,
             text="INR to USD Expense Converter",
             font=("Segoe UI", 18, "bold"),
-        )
-        title.grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 14))
+        ).grid(row=0, column=0, columnspan=3, sticky="w", pady=(0, 14))
 
-        rate_label = ttk.Label(main_frame, text=f"Exchange rate: 1 USD = {INR_TO_USD_RATE:.2f} INR")
-        rate_label.grid(row=1, column=0, columnspan=3, sticky="w", pady=(0, 14))
+        ttk.Label(main_frame, text=f"Exchange rate: 1 USD = {INR_TO_USD_RATE:.2f} INR").grid(
+            row=1,
+            column=0,
+            columnspan=3,
+            sticky="w",
+            pady=(0, 14),
+        )
 
         ttk.Label(main_frame, text="INR amount").grid(row=2, column=0, sticky="w", pady=6)
         amount_entry = ttk.Entry(main_frame, textvariable=self.amount_var)
@@ -73,13 +77,12 @@ class ExpenseConverterApp:
             pady=6,
         )
 
-        result_label = ttk.Label(
+        ttk.Label(
             main_frame,
             textvariable=self.result_var,
             font=("Segoe UI", 12, "bold"),
             wraplength=460,
-        )
-        result_label.grid(row=3, column=0, columnspan=3, sticky="w", pady=(8, 12))
+        ).grid(row=3, column=0, columnspan=3, sticky="w", pady=(8, 12))
 
         columns = ("inr", "usd")
         self.expense_table = ttk.Treeview(main_frame, columns=columns, show="headings", height=8)

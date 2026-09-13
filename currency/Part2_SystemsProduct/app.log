@@ -1,0 +1,12 @@
+2026-08-26 23:52:50,718 - INFO - Converted 150.00 USD to 138.00 EUR
+2026-08-27 01:01:48,271 - INFO - Converted 150.00 USD to 138.00 EUR using local config
+2026-08-27 01:01:48,345 - ERROR - Could not connect to the currency API.
+2026-08-27 01:04:40,094 - INFO - Converted 150.00 USD to 128.54 EUR using live API
+2026-08-27 01:12:22,239 - INFO - Converted 150.00 USD to 128.54 EUR using live API
+2026-08-27 01:14:16,343 - ERROR - Could not connect to the currency API.
+2026-08-27 01:14:51,879 - ERROR - Currency API response did not include rates.
+2026-08-27 01:15:14,661 - INFO - Converted 150.00 USD to 128.53 EUR using live keyed API
+2026-08-27 01:23:02,330 - INFO - Converted 150.00 USD to 128.53 EUR using live keyed API
+2026-08-29 11:23:58,266 - INFO - Converted 9524.00 INR to 100.00 USD using local config
+2026-08-29 11:24:35,062 - INFO - Converted 9524.00 INR to 100.00 USD using local config
+2026-08-29 11:45:12,539 - INFO - Converted 9524.00 INR to 100.00 USD using local config

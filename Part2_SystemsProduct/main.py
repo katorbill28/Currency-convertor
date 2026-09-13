@@ -5,8 +5,8 @@ import os
 import sys
 import threading
 import tkinter as tk
-from tkinter import ttk
 from pathlib import Path
+from tkinter import ttk
 
 from src.converter import (
     ApiError,
@@ -72,8 +72,6 @@ class CurrencyConverterApp:
     def __init__(self, root, logger):
         self.root = root
         self.logger = logger
-        self.rates = None
-        self.rate_source = None
 
         self.root.title("Currency Converter")
         self.root.geometry("460x380")
@@ -114,31 +112,28 @@ class CurrencyConverterApp:
         amount_entry.focus()
 
         ttk.Label(main_frame, text="From").grid(row=2, column=0, sticky="w", pady=6)
-        from_box = ttk.Combobox(
+        ttk.Combobox(
             main_frame,
             textvariable=self.from_var,
             values=self.currency_values,
             state="readonly",
-        )
-        from_box.grid(row=2, column=1, sticky="ew", pady=6)
+        ).grid(row=2, column=1, sticky="ew", pady=6)
 
         ttk.Label(main_frame, text="To").grid(row=3, column=0, sticky="w", pady=6)
-        to_box = ttk.Combobox(
+        ttk.Combobox(
             main_frame,
             textvariable=self.to_var,
             values=self.currency_values,
             state="readonly",
-        )
-        to_box.grid(row=3, column=1, sticky="ew", pady=6)
+        ).grid(row=3, column=1, sticky="ew", pady=6)
 
         ttk.Label(main_frame, text="Rate source").grid(row=4, column=0, sticky="w", pady=6)
-        source_box = ttk.Combobox(
+        ttk.Combobox(
             main_frame,
             textvariable=self.source_var,
             values=("config", "auto", "api"),
             state="readonly",
-        )
-        source_box.grid(row=4, column=1, sticky="ew", pady=6)
+        ).grid(row=4, column=1, sticky="ew", pady=6)
 
         ttk.Label(main_frame, text="API key").grid(row=5, column=0, sticky="w", pady=6)
         ttk.Entry(main_frame, textvariable=self.api_key_var, show="*").grid(
@@ -162,13 +157,12 @@ class CurrencyConverterApp:
             padx=(6, 0),
         )
 
-        result_label = ttk.Label(
+        ttk.Label(
             main_frame,
             textvariable=self.result_var,
             font=("Segoe UI", 14, "bold"),
             wraplength=390,
-        )
-        result_label.grid(row=7, column=0, columnspan=2, sticky="w", pady=(8, 4))
+        ).grid(row=7, column=0, columnspan=2, sticky="w", pady=(8, 4))
 
         ttk.Label(main_frame, textvariable=self.status_var, foreground="#555555").grid(
             row=8,
@@ -189,9 +183,7 @@ class CurrencyConverterApp:
         self.convert_button.configure(state="disabled")
         self.status_var.set("Loading rates...")
         self.result_var.set("Working...")
-
-        worker = threading.Thread(target=self._convert_in_background, daemon=True)
-        worker.start()
+        threading.Thread(target=self._convert_in_background, daemon=True).start()
 
     def _convert_in_background(self):
         try:
